@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity2"/>
+        <service android:name=".Da"/>
         <receiver android:name=".AlarmReceiver">
         <intent-filter>
         <action android:name="android.alarm.demo.action" />

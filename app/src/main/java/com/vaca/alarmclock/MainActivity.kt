@@ -13,13 +13,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-       val intent=Intent(this,MainActivity2::class.java);
-       val pend=PendingIntent.getActivity(this,0,intent,0); //显示闹钟，alarmActivity
+       val intent=Intent(this,Da::class.java);
+       val pend=PendingIntent.getService(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT); //显示闹钟，alarmActivity
         val alarm= getSystemService(Context.ALARM_SERVICE) as (AlarmManager)     // 通过Context.ALARM_SERVICE获取AlarmManager对象
-      val calendar = Calendar.getInstance();                     //获取日历对象
-        calendar.set(Calendar.HOUR_OF_DAY,18);       //利用时间拾取组件timePicker得到要设定的时间
-        calendar.set(Calendar.MINUTE,0);
-        calendar.set(Calendar.SECOND,0);
+
         alarm.set(AlarmManager.RTC,System.currentTimeMillis()+1000,pend);     //设定闹钟
 
     }
